@@ -28,7 +28,7 @@ app.listen(port, () => {
 
 function createFromDateParam(date: string | undefined): Date | undefined {
   if (date === undefined) {
-    return undefined;
+    return new Date();
   }
 
   let dateValue = Number.isNaN(+date) ? new Date(date) : new Date(+date);
