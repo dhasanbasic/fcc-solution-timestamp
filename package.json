@@ -1,0 +1,38 @@
+{
+  "name": "fcc-solution-timestamp",
+  "version": "0.0.1",
+  "description": "Solution to the Timestamp Microservice FCC Backend Challenge",
+  "author": {
+    "name": "Dinko Hasanbasic",
+    "email": "dinko.hasanbasic@gmail.com"
+  },
+  "main": "server.js",
+  "scripts": {
+    "serve": "nodemon server.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhasanbasic/fcc-solution-timestamp.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "freecodecamp",
+    "solution"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.23",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.6.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  }
+}
