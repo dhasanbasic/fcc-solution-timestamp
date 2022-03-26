@@ -1,6 +1,6 @@
-import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
 import cors from 'cors';
+import dotenv from 'dotenv';
+import express, { Express } from 'express';
 
 dotenv.config();
 
@@ -17,10 +17,20 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/api/hello', function (req, res) {
-  res.json({ greeting: 'hello API' });
+app.get('/api/:date?', (request, response) => {
+  const date: Date | undefined = createFromDateParam(request.params.date);
+  return response.json(date ? { unix: date.getTime(), utc: date.toUTCString() } : { error: 'Invalid Date' });
 });
 
 app.listen(port, () => {
   console.log('⚡️[server]: Your app is listening on port ' + port);
 });
+
+function createFromDateParam(date: string | undefined): Date | undefined {
+  if (date === undefined) {
+    return undefined;
+  }
+
+  let dateValue = Number.isNaN(+date) ? new Date(date) : new Date(+date);
+  return isNaN(dateValue.getTime()) ? undefined : dateValue;
+}
